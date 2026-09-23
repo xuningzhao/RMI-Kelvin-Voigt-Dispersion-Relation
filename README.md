@@ -5,8 +5,6 @@ solver generates degree-14 polynomial candidates, verifies them against the
 original dispersion relation, and applies the semi-infinite spatial-decay
 conditions. Both float64 and full arbitrary-precision workflows are included.
 
-Repository: https://github.com/xuningzhao/RMI-Kelvin-Voigt-Dispersion-Relation
-
 ## Install and test
 
 Use Python 3.11. Run these commands from the repository root:
@@ -155,25 +153,15 @@ original configuration and manifest with each campaign.
 
 </details>
 
-## Methods and limits
+## Input domain and precision
 
-The viscous time scale is `t_v = rho_T/(mu_T k^2)`, with `s = gamma t_v` and
-`Lambda = ((1-Ek)/(1+Ek))^2`. The reference path requires finite real inputs
-with `|Arho| < 1`, `|Amu| < 1`, `|AG| <= 1`, and `-1 < Ek < 1`.
+The reference path requires finite real inputs with `|Arho| < 1`,
+`|Amu| < 1`, `|AG| <= 1`, and `-1 < Ek < 1`. The float64 command accepts
+`Lambda`, related to `Ek` by `Lambda = ((1-Ek)/(1+Ek))^2`.
 
-Polynomial candidates are checked in the definition domain of the original
-equation using the principal square-root branches. Physical acceptance
-requires `Re(q) > 1e-12 + 1e-10 max(1, abs(q))` for both spatial decay factors.
-Temporal growth/decay, determined by `Re(s)`, is a separate classification.
-
-The symbolic no-root-loss theorem does not certify finite-precision root
-completeness. Closely spaced roots require precision-convergence checks;
-accepted binary64 outputs can merge at the deduplication tolerance. Use
-separate processes rather than threads for concurrent mpmath solves.
-
-[THEORY.md](THEORY.md) contains the complete methods, tolerances, algebra,
-nondimensionalization, and symbolic verification records. Canonical Wolfram
-exports remain in `symbolic/exports/canonical/`.
+Check closely spaced roots at increased precision. Accepted binary64 outputs
+can merge at the deduplication tolerance. Use separate processes rather than
+threads for concurrent mpmath solves.
 
 ## Validation and contributions
 

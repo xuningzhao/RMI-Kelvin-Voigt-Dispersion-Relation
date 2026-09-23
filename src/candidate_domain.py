@@ -5,7 +5,7 @@ nondimensional dispersion relation on the principal square-root branch.  It
 does not evaluate the dispersion residual and does not apply the physical
 spatial-decay filter.
 
-Notation follows ``THEORY.md#root-verification``:
+The source-equation intermediate quantities are:
 
     E_+ = s(1 + A_mu) + Lambda(1 + A_G)
     E_- = s(1 - A_mu) + Lambda(1 - A_G)
