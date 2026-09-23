@@ -1,15 +1,6 @@
 {
   "files": [
-    "SPEC.md",
-    "root_verification_workflow.md",
-    "PRODUCTION_SWEEP.md",
     "requirements.txt",
-    "requirements-dev.txt",
-    "requirements-lock.txt",
-    "docs/SOLVER_METHODS.md",
-    "docs/RELEASE_VALIDATION.md",
-    "release/metadata.json",
-    "release/source_manifest.json",
     "scripts/build_solver_release.py",
     "scripts/analyze_parameter_point.py",
     "scripts/analyze_mp_parameter_point.py",
@@ -26,13 +17,8 @@
     "README.md",
     ".gitignore",
     ".gitattributes",
-    "VERSION",
-    "CHANGELOG.md",
-    "CONTRIBUTING.md",
-    "PROVENANCE.md",
-    "release/README.md",
-    "release/CITATION.cff.template",
-    "release/UPSTREAM_SOURCE_MANIFEST.json"
+    "THEORY.md",
+    "config/source_manifest.json"
   ],
   "trees": [
     "src",
@@ -41,11 +27,9 @@
     "benchmarks",
     "derivation",
     "symbolic",
-    "docs",
     "examples",
     ".github"
   ],
-  "rename": {},
   "excluded_parts": [
     "__pycache__",
     "logs",

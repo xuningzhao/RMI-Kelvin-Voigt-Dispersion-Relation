@@ -1,7 +1,7 @@
 """Nondimensional Kelvin--Voigt dispersion-relation evaluators.
 
 This module implements equations (6), (8), and (13) of
-``derivation/final_nondimensional_dispersion.md``.  It evaluates the
+``THEORY.md#dispersion``.  It evaluates the
 dispersion function only; it contains no root-finding logic.
 
 NumPy's complex square root is used, so every radical is evaluated on the
@@ -149,7 +149,7 @@ def original_dimensional_D(
     G1: ArrayLike,
     G2: ArrayLike,
 ) -> DispersionValue:
-    """Evaluate the original dimensional dispersion relation from ``SPEC.md``.
+    """Evaluate the original dimensional dispersion relation from ``THEORY.md#specification``.
 
     The two radicals use NumPy's principal complex square-root branch, matching
     the branch convention used by the nondimensional evaluators.  Inputs obey

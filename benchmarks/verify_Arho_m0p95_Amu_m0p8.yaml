@@ -2,7 +2,7 @@
 #
 # This file records the exact parameter study used for the
 # verify_Arho_m0p95_Amu_m0p8 benchmark.  The current CLI does not consume YAML
-# directly; use the command sequence documented in examples/README.md.
+# directly; use the command sequence documented in README.md.
 
 name: verify_Arho_m0p95_Amu_m0p8
 description: >

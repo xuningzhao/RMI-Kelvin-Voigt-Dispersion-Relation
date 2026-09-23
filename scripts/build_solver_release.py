@@ -13,13 +13,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def build(output: Path) -> None:
-    spec = json.loads((ROOT / "release/source_manifest.json").read_text())
+    spec = json.loads((ROOT / "config/source_manifest.json").read_text())
     selected = {name: name for name in spec["files"]}
     selected.update({name: name for name in spec.get("optional_files", [])
                      if (ROOT / name).is_file()})
-    # The extracted archive uses the release guide as README; keep its source
-    # too so that the same manifest can rebuild the archive outside this repo.
-    selected.update({name: name for name in spec["rename"]})
     for name in spec["trees"]:
         for path in sorted((ROOT / name).rglob("*")):
             relative = path.relative_to(ROOT)
@@ -34,8 +31,6 @@ def build(output: Path) -> None:
         if path.is_symlink() or not path.is_file():
             raise ValueError(f"release source is missing or a symlink: {source}")
         entries[target] = path.read_bytes()
-    for source, target in spec["rename"].items():
-        entries[target] = (ROOT / source).read_bytes()
     try:
         commit = subprocess.check_output(
             ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True,
