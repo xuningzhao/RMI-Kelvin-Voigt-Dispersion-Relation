@@ -1,0 +1,4 @@
+-r requirements.txt
+# Plotting and symbolic-export comparison tests.
+matplotlib>=3.6
+sympy>=1.11

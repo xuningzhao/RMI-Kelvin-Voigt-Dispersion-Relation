@@ -1,0 +1,40 @@
+name: Solver tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  numerical-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      MPLBACKEND: Agg
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-lock.txt
+      - name: Install recorded dependencies
+        run: python -m pip install -r requirements-lock.txt
+      - name: Run numerical and workflow tests
+        run: python -m unittest discover -s tests -v
+      - name: Exercise the reference CLI
+        run: >-
+          python scripts/analyze_mp_parameter_point.py
+          --Arho -0.9974 --Amu -0.999998 --AG -1 --Ek 0 --precision 80
+      - name: Exercise a small reference sweep
+        run: >-
+          python scripts/run_mp_reference_sweep.py
+          --Arho -0.9974 --Amu -0.999998 --samples 3 --workers 1
+          --precision 80 --output-dir results/ci-smoke
+      - name: Check source archive construction
+        run: python scripts/build_solver_release.py --output dist/ci-source.zip

@@ -1,0 +1,46 @@
+{
+  "parameters": {
+    "Arho": "-0.9974",
+    "Amu": "-0.999998",
+    "AG": "-1",
+    "Ek": "0"
+  },
+  "backend": "mp",
+  "decimal_precision": 80,
+  "output_precision": "binary64; acceptance evaluated before conversion",
+  "polynomial_candidate_count": 14,
+  "mathematically_genuine_count": 4,
+  "physically_admissible_count": 2,
+  "accepted": [
+    {
+      "s": {
+        "real": -0.456786491471073,
+        "imag": -0.8395940021963738
+      },
+      "q_plus": {
+        "real": 18.017386652425998,
+        "imag": -30.289414994275038
+      },
+      "q_minus": {
+        "real": 0.29599794816076125,
+        "imag": 2.704193938437948e-06
+      },
+      "relative_source_residual": 3.4459467150406517e-73
+    },
+    {
+      "s": {
+        "real": -0.456786491471073,
+        "imag": 0.8395940021963738
+      },
+      "q_plus": {
+        "real": 18.017386652425998,
+        "imag": 30.289414994275038
+      },
+      "q_minus": {
+        "real": 0.29599794816076125,
+        "imag": -2.704193938437948e-06
+      },
+      "relative_source_residual": 3.4459467150406517e-73
+    }
+  ]
+}

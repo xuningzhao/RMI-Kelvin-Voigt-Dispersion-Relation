@@ -1,0 +1,24 @@
+# Python and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+# Generated results, archives, and runtime files
+results/
+dist/
+logs/
+.cache/
+.matplotlib/
+SOURCE_MANIFEST.json
+symbolic/logs/
+# Local credentials and editor state
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+*.swp

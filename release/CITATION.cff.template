@@ -1,0 +1,14 @@
+# Template only: fill author/repository metadata before copying to CITATION.cff.
+cff-version: 1.2.0
+message: "If you use this solver, please cite this software release."
+type: software
+title: "Kelvin–Voigt RMI dispersion relation numerical solver"
+version: "0.1.0rc1"
+authors:
+  - family-names: "REPLACE_WITH_FAMILY_NAME"
+    given-names: "REPLACE_WITH_GIVEN_NAMES"
+# Add further authors and ORCID identifiers as appropriate.
+# repository-code: "https://github.com/OWNER/REPOSITORY"
+# license: "REPLACE_WITH_CHOSEN_SPDX_IDENTIFIER"
+# date-released: YYYY-MM-DD
+# Add a DOI or preferred-citation only when one actually exists.

@@ -1,0 +1,3 @@
+# Solver runtime. The recorded validation environment is requirements-lock.txt.
+numpy>=1.23
+mpmath>=1.3

@@ -1,0 +1,56 @@
+# Reproducible benchmark configuration for the validated P14 workflow.
+#
+# This file records the exact parameter study used for the
+# verify_Arho_m0p95_Amu_m0p8 benchmark.  The current CLI does not consume YAML
+# directly; use the command sequence documented in examples/README.md.
+
+name: verify_Arho_m0p95_Amu_m0p8
+description: >
+  Air-hydrogel-like asymmetric benchmark using the polynomial-complete
+  root-verification workflow with targeted high-precision refinement enabled
+  for numerically ambiguous candidates only.
+
+fixed_parameters:
+  Arho: -0.95
+  Amu: -0.8
+
+swept_parameters:
+  AG:
+    minimum: -0.8
+    maximum: 0.8
+    samples: 31
+    spacing: linear
+  Ek:
+    minimum: -0.8
+    maximum: 0.8
+    samples: 31
+    spacing: linear
+
+coordinate_system: Ek
+lambda_conversion: "Lambda = ((1 - Ek) / (1 + Ek))^2"
+point_count: 961
+
+workflow_options:
+  enable_high_precision_refinement: true
+  high_precision_initial_decimal_precision: 80
+  high_precision_maximum_decimal_precision: 120
+  high_precision_precision_step: 20
+  high_precision_maximum_refinement_attempts: 80
+  high_precision_cluster_spacing_threshold: 1.0e-3
+
+output:
+  directory: results/verify_Arho_m0p95_Amu_m0p8
+  generated_files_are_gitignored: true
+  required_artifacts:
+    - sweep_output.jsonl
+    - point_summary.csv
+    - admissible_roots.csv
+    - grid_data.npz
+    - metadata.json
+    - validation_report.txt
+    - figures/classification_map.png
+    - figures/mathematically_genuine_root_count.png
+    - figures/physically_admissible_root_count.png
+    - figures/marginal_root_count.png
+    - figures/effective_polynomial_degree.png
+    - figures/admissible_roots_complex_plane.png

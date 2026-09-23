@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "campaign_name": "kv_rmi_production_v1",
+  "contrast_levels": [-0.99, -0.9, -0.5, 0.0, 0.5, 0.9, 0.99],
+  "scans": {
+    "Ek": {"minimum": -0.99, "maximum": 0.99, "samples": 501},
+    "contrast": {"minimum": -0.99, "maximum": 0.99, "samples": 501}
+  },
+  "solver": {
+    "polynomial_relative_tolerance": 1e-12,
+    "polynomial_absolute_tolerance": 0.0,
+    "domain_relative_tolerance": 1e-10,
+    "domain_absolute_tolerance": 1e-14,
+    "residual_relative_tolerance": 1e-8,
+    "residual_absolute_tolerance": 1e-10,
+    "ambiguity_factor": 100.0,
+    "q_relative_tolerance": 1e-10,
+    "q_absolute_tolerance": 1e-12,
+    "enable_high_precision_refinement": true,
+    "high_precision_initial_decimal_precision": 80,
+    "high_precision_maximum_decimal_precision": 120,
+    "high_precision_precision_step": 20,
+    "high_precision_maximum_refinement_attempts": 80,
+    "high_precision_cluster_spacing_threshold": 0.001
+  },
+  "storage": {
+    "save_all_candidates": false,
+    "compression": true
+  },
+  "execution": {
+    "case_workers": 49,
+    "group_a_cases_per_worker": 7,
+    "group_b_tile_shape": [50, 50],
+    "point_workers": 1
+  }
+}
